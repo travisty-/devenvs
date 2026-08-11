@@ -1,0 +1,65 @@
+version: "2"
+run:
+  relative-path-mode: gomod
+linters:
+  enable:
+    - bodyclose
+    - errorlint
+    - exhaustive
+    - modernize
+    - musttag
+    - nilerr
+    - nilnesserr
+    - noctx
+    - nolintlint
+    - revive
+    - unparam
+    - usetesting
+    - wsl_v5
+  settings:
+    errcheck:
+      exclude-functions:
+        - fmt.Fprint(os.Stdout)
+        - fmt.Fprintf(os.Stdout)
+        - fmt.Fprintln(os.Stdout)
+    revive:
+      enable-default-rules: true
+      rules:
+        - name: bare-return
+        - name: confusing-results
+        - name: constant-logical-expr
+        - name: datarace
+        - name: deep-exit
+        - name: defer
+        - name: duplicated-imports
+        - name: early-return
+        - name: identical-branches
+        - name: identical-ifelseif-branches
+        - name: identical-ifelseif-conditions
+        - name: identical-switch-branches
+        - name: identical-switch-conditions
+        - name: import-shadowing
+        - name: modifies-value-receiver
+        - name: package-directory-mismatch
+        - name: redundant-import-alias
+        - name: struct-tag
+        - name: time-equal
+        - name: unchecked-type-assertion
+        - name: unconditional-recursion
+        - name: useless-break
+        - name: useless-fallthrough
+        - name: waitgroup-by-value
+    nolintlint:
+      require-explanation: true
+      require-specific: true
+  exclusions:
+    presets:
+      - comments
+formatters:
+  enable:
+    - gofumpt
+    - goimports
+    - golines
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
